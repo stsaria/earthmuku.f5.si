@@ -19,9 +19,19 @@
             <p style="height: 10px;"></p>
         </div>
         <hr>
+        <h2 class="container">Server Status</h2>
         <div class="container d-flex">
-            <h2 class="d-flex flex-row">Server Status</h2>
-            <a href="http://tt0.link/minecraft/" class="d-flex flex-row-reverse"><img width="50%" src="http://tt0.link/minecraft/others/servercheck/img/default2.php?ip=earthmuku.f5.si&port=25565"></a>
+            <span class="text-info">Minecraft Server(Towny Server)</span> :
+            <?php
+                //ちゃんと動いてしっくりくる
+                $socket = stream_socket_client("tcp://play.earthmuku.f5.si:25565");
+                if ($socket ===false) {
+                    echo "<span class=\"text-error\"> not running</span>";
+                    exit();
+                } else {
+                    echo "<span class=\"text-green\">running</span>";
+                }
+            ?>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     </body>
