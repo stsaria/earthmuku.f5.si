@@ -23,7 +23,6 @@
         <div class="container d-flex">
             <span class="text-info">Minecraft Server(Towny Server)</span> :
             <?php
-                //ちゃんと動いてしっくりくる
                 $socket = stream_socket_client("tcp://play.earthmuku.f5.si:25565");
                 if ($socket ===false) {
                     echo "<span class=\"text-error\"> not running</span>";
